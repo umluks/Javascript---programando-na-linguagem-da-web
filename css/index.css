@@ -10,14 +10,15 @@ body {
 header {
   background-color: #333;
   height: 4em;
-  color: #fff;
-  text-transform: uppercase;
 }
 
-header h1 {
+header h1.title-site {
   font-size: 2em;
   display: inline-block;
   vertical-align: middle;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 header h2 {
   font-size: 2em;
@@ -139,10 +140,6 @@ button[disabled="disabled"],
 button:disabled {
   background-color: gray;
   border-color: darkgray;
-}
-
-.adicionar-paciente {
-  margin-top: 30px;
 }
 
 .campo-invalido {

@@ -1,90 +1,80 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Lorem</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-  </head>
 
-  <body>
-    <header>
+<head>
+  <meta charset="UTF-8" />
+  <title>Lorem</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="css/reset.css" />
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1 class="title-site">IMC Fácil</h1>
+    </div>
+  </header>
+
+  <main>
+    <section class="form-user">
       <div class="container">
-        <h1 class="title-site">Nutrição</h1>
-      </div>
-    </header>
-
-    <main>
-      <section class="form-user">
-        <div class="container">
-          <h2 id="titulo-form">Adicionar Novo</h2>
-          <form id="form-adiciona">
+        <h2 id="titulo-form">Adicionar Novo</h2>
+        <form id="form-adiciona">
+          <div class="grupo">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" value="nome" type="text" placeholder="digite o nome do seu paciente"
+              class="campo" />
+            <span class="erro-paciente-nome"></span>
+          </div>
+          <div class="form-paciente">
             <div class="grupo">
-              <label for="nome">Nome</label>
-              <input
-                id="nome"
-                name="nome"
-                value="nome"
-                type="text"
-                placeholder="digite o nome do seu paciente"
-                class="campo"
-              />
+              <label for="peso">Peso</label>
+              <input id="peso" name="peso" value="peso" type="text" placeholder="digite o peso do seu paciente"
+                class="campo campo-medio" />
+              <span class="erro-paciente-peso"></span>
             </div>
-            <div class="form-paciente">
-              <div class="grupo">
-                <label for="peso">Peso</label>
-                <input
-                  id="peso"
-                  name="peso"
-                  value="peso"
-                  type="text"
-                  placeholder="digite o peso do seu paciente"
-                  class="campo campo-medio"
-                />
-              </div>
-              <div class="grupo">
-                <label for="altura">Altura</label>
-                <input
-                  id="altura"
-                  name="altura"
-                  value="altura"
-                  type="text"
-                  placeholder="digite a altura do seu paciente"
-                  class="campo campo-medio"
-                />
-              </div>
+            <div class="grupo">
+              <label for="altura">Altura</label>
+              <input id="altura" name="altura" value="altura" type="text" placeholder="digite a altura do seu paciente"
+                class="campo campo-medio" />
+              <span class="erro-paciente-altura"></span>
             </div>
+          </div>
 
-            <button class="adicionar-paciente">Adicionar</button>
-          </form>
-        </div>
-      </section>
+          <button class="adicionar-paciente">Adicionar</button>
+        </form>
+      </div>
 
-      <section class="container paciente">
-        <h2>Meus pacientes</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Peso(kg)</th>
-              <th>Altura(m)</th>
-              <th>IMC</th>
-            </tr>
-          </thead>
-          <tbody id="new-pacientes">
-            <tr class="paciente">
-              <td class="info-nome">Lucas</td>
-              <td class="info-peso">105</td>
-              <td class="info-altura">1.87</td>
-              <td class="info-imc">0</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-    </main>
+      <span class="new-paciente"></span>
+    </section>
 
-    <script src="js/calculaimc.js"></script>
-    <script src="js/formpaciente.js"></script>
-  </body>
+    <section class="container paciente">
+      <h2>Meus pacientes</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Peso(kg)</th>
+            <th>Altura(m)</th>
+            <th>IMC</th>
+          </tr>
+        </thead>
+        <tbody id="new-pacientes">
+          <tr class="paciente">
+            <td class="info-nome">Lucas</td>
+            <td class="info-peso">105</td>
+            <td class="info-altura">1.87</td>
+            <td class="info-imc">0</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="js/calculaimc.js"></script>
+  <script src="js/formpaciente.js"></script>
+  <script src="js/removepaciente.js"></script>
+</body>
+
 </html>
