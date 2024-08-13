@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Lorem</title>
+  <title>CALCULA IMC FÁCIl</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" type="text/css" href="css/reset.css" />
   <link rel="stylesheet" type="text/css" href="css/index.css" />
@@ -13,6 +13,7 @@
   <header>
     <div class="container">
       <h1 class="title-site">IMC Fácil</h1>
+
     </div>
   </header>
 
@@ -43,14 +44,21 @@
           </div>
 
           <button class="adicionar-paciente">Adicionar</button>
+          <button class="importa-pacientes">Importar pacientes</button>
         </form>
       </div>
-
-      <span class="new-paciente"></span>
     </section>
 
-    <section class="container paciente">
+
+    <div class="container title-paciente">
       <h2>Meus pacientes</h2>
+      <div class="search-paciente">
+        <input class="input-search" type="text" placeholder="Buscar pelo Nome do Paciente">
+      </div>
+    </div>
+
+    <section class="container paciente">
+
       <table>
         <thead>
           <tr>
@@ -58,14 +66,18 @@
             <th>Peso(kg)</th>
             <th>Altura(m)</th>
             <th>IMC</th>
+
           </tr>
         </thead>
         <tbody id="new-pacientes">
+
           <tr class="paciente">
-            <td class="info-nome">Lucas</td>
-            <td class="info-peso">105</td>
-            <td class="info-altura">1.87</td>
+            <td class="info-nome">Mateus</td>
+            <td class="info-peso">205</td>
+            <td class="info-altura">1.57</td>
             <td class="info-imc">0</td>
+          </tr>
+
           </tr>
         </tbody>
       </table>
@@ -75,6 +87,8 @@
   <script src="js/calculaimc.js"></script>
   <script src="js/formpaciente.js"></script>
   <script src="js/removepaciente.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/importpacientes.js"></script>
 </body>
 
 </html>

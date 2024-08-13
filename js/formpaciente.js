@@ -1,31 +1,51 @@
-// Seleciona o botão de adicionar paciente
+// Função para salvar o paciente no LocalStorage
+function salvaPacienteLocal(paciente) {
+  let pacientes = JSON.parse(localStorage.getItem("pacientes")) || [];
+  pacientes.push(paciente);
+  localStorage.setItem("pacientes", JSON.stringify(pacientes));
+
+  // Mensagens de log para verificação
+  console.log("Paciente salvo:", paciente);
+  console.log(
+    "Todos os pacientes:",
+    JSON.parse(localStorage.getItem("pacientes"))
+  );
+}
+
 const btnAdicionar = document.querySelector(".adicionar-paciente");
 
 btnAdicionar.addEventListener("click", function (event) {
-  event.preventDefault(); // Previne o comportamento padrão do botão (submeter o formulário)
+  event.preventDefault();
+  console.log("Botão de adicionar paciente clicado");
 
-  const form = document.querySelector("#form-adiciona"); // Seleciona o formulário
-  const paciente = obtemDadosPaciente(form); // Obtém os dados do formulário e os armazena em um objeto
+  const form = document.querySelector("#form-adiciona");
+  const paciente = obtemDadosPaciente(form);
+  console.log("Dados do paciente obtidos:", paciente);
 
-  // Limpa mensagens de erro anteriores
   limpaMensagensErro();
 
-  // Verifica se os dados do paciente são válidos
   const erro = validarPaciente(paciente);
-
   if (erro) {
-    exibeMensagensErro(erro); // Exibe a mensagem de erro correspondente
-    return; // Sai da função se os dados não forem válidos
+    console.log("Erro de validação encontrado:", erro);
+    exibeMensagensErro(erro);
+    return;
   }
 
-  const pacienteTr = montaTr(paciente); // Cria uma nova linha na tabela com os dados do paciente
-  adicionaPacienteNaTabela(pacienteTr); // Adiciona a nova linha à tabela
+  const pacienteTr = montaTr(paciente);
+  console.log("Linha do paciente montada:", pacienteTr);
 
-  // document.querySelector(".new-paciente").textContent =
-  //   "Paciente Adicionado com sucesso";
+  adicionaPacienteNaTabela(pacienteTr);
+  console.log("Paciente adicionado à tabela");
 
-  form.reset(); // Reseta o formulário
+  form.reset();
+  console.log("Formulário resetado");
 });
+
+// Função que adiciona uma linha (tr) à tabela de pacientes
+function adicionaPacienteNaTabela(pacienteTr) {
+  const tabela = document.querySelector("#new-pacientes"); // Seleciona a tabela
+  tabela.appendChild(pacienteTr); // Adiciona a linha à tabela
+}
 
 function obtemDadosPaciente(form) {
   return {
@@ -40,12 +60,15 @@ function validarPaciente(paciente) {
   let erros = {};
 
   if (paciente.nome === "") {
+    nome.classList.add("paciente-error");
     erros.nome = "O nome não pode estar vazio.";
   }
   if (isNaN(paciente.peso) || paciente.peso <= 0) {
+    peso.classList.add("paciente-error");
     erros.peso = "Peso inválido. Por favor, insira um valor maior que zero.";
   }
   if (isNaN(paciente.altura) || paciente.altura <= 0) {
+    altura.classList.add("paciente-error");
     erros.altura =
       "Altura inválida. Por favor, insira um valor maior que zero.";
   }
@@ -58,7 +81,6 @@ function limpaMensagensErro() {
   document.querySelector(".erro-paciente-nome").textContent = "";
   document.querySelector(".erro-paciente-peso").textContent = "";
   document.querySelector(".erro-paciente-altura").textContent = "";
-  document.querySelector(".new-paciente").textContent = "";
 }
 
 // Função para exibir as mensagens de erro

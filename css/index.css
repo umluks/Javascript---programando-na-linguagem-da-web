@@ -10,6 +10,9 @@ body {
 header {
   background-color: #333;
   height: 4em;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
 }
 
 header h1.title-site {
@@ -20,10 +23,11 @@ header h1.title-site {
   text-transform: uppercase;
   font-weight: bold;
 }
-header h2 {
+.form-user h2 {
   font-size: 2em;
   display: inline-block;
   vertical-align: middle;
+  margin: 0 0 20px 0;
 }
 
 header .container:before {
@@ -44,12 +48,39 @@ section {
   overflow: hidden;
 }
 
-section h2 {
+.title-paciente {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.title-paciente input {
+  height: 40px;
+  width: 400px;
+  border-radius: 6px 6px;
+  padding: 10px 10px;
+}
+
+.title-paciente h2 {
   font-size: 3em;
   display: block;
   padding-bottom: 0.5em;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 0.5em;
+  vertical-align: middle;
+}
+
+.search-paciente {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-search {
+  border: 0;
+  cursor: pointer;
+  color: #fff;
+  background-color: #0c8cd3;
+  border-radius: 6px 6px;
+  margin-left: 10px;
 }
 
 table {
@@ -131,6 +162,23 @@ button {
   width: 100%;
 }
 
+.importa-pacientes {
+  padding: 0.5em 2em;
+  border: 0;
+  border-bottom: 3px solid;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin: 0;
+  margin-top: -3px;
+  color: #fff;
+  background-color: #28a745;
+  border-color: #04324c;
+  display: block;
+  clear: both;
+  margin: 10px 0px;
+  width: 100%;
+}
+
 button:active {
   margin-top: 0px;
   border: 0;
@@ -148,4 +196,7 @@ button:disabled {
 
 .paciente-error {
   color: red;
+}
+.paciente-invisible {
+  display: none;
 }
